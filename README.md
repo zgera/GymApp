@@ -1,4 +1,4 @@
-# ** owo COMMIT RULES owo**
+# **COMMIT RULES**
 
 - No solucionar o hacer varias cosas en un mismo 'commit' sino, realizarlas en 2 'commit' con distinto message
 - Todos los 'commits' realizados se van a realizar de la siguiente manera:
