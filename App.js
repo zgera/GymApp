@@ -137,6 +137,7 @@ class Ejercicio{
         return this.descanso
     }
     
+    
     get getSeries(){
         return this.series 
     }
