@@ -94,13 +94,13 @@ const Timer = () => {
                     style={styles.input}
                     value={inputTime}
                     onChangeText={(text) => {
-                        // Limit the input to 5 characters (mm:ss)
+                        
                         if (text.length <= 5) {
                             setInputTime(text);
                         }
                     }}
                     placeholder="mm:ss"
-                    maxLength={5} // Limit the maximum length of input to 5 characters
+                    maxLength={5} 
                 />
                 <Button title="✅" onPress={setTimer} />
                 <Button title="🔁" onPress={resetTimer} />
