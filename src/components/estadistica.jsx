@@ -1,24 +1,24 @@
-import React from 'react'
-import {Text, View, StyleSheet, FlatList} from 'react-native'
+import React from 'react';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
 
-
-const listaEstadisticas = ({prop}) => {
+const listaEstadisticas = ({ prop }) => {
     return (
         <FlatList
             data={prop}
-            renderItem={({item: repo}) => (
-                <View key={repo.ejercicio.nombre} style={Style.container}>
-                    <Text style={Style.textoPrincipal} >{repo.ejercicio.getNombre}</Text>
-                    <Text style={Style.dato} >Peso: {repo.peso}</Text>
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item: repo }) => (
+                <View style={Style.container}>
+                    <Text style={Style.textoPrincipal}>{repo.ejercicio.getNombre}</Text>
+                    <Text style={Style.dato}>Peso: {repo.peso}</Text>
                     <Text style={Style.dato}>Repeticiones: {repo.repeticiones}</Text>
                 </View>
             )}
         />
-    )
-}
+    );
+};
 
 const Style = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#242425',
@@ -40,6 +40,6 @@ const Style = StyleSheet.create({
         fontSize: 15,
         color: "white"
     }
-})
+});
 
-export default listaEstadisticas
+export default listaEstadisticas;
