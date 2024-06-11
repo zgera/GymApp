@@ -1,19 +1,16 @@
-import React from 'react'
-import Main from './src/components/main.jsx'
-
 class Usuario {
     constructor(nombre, edad, peso){
+        this.nombre = nombre
         this.edad = edad 
         this.peso = peso
-        this.nombre = nombre
         this.rutinas = []
-  }
+    }
 
     crearRutina(nombre){
         this.rutinas.push(new Rutina(nombre))
     }
 
-     darRutina(indice){
+    darRutina(indice){
         return this.rutinas[indice]
     }
 
@@ -21,10 +18,10 @@ class Usuario {
         return this.nombre
     }
 
-     get getEdad(){
+    get getEdad(){
         return this.edad
     }
-  
+    
     get getPeso(){
         return this.peso
     }
@@ -99,10 +96,9 @@ class Dia {
     }
 }
 
-class Entrenamiento extends Dia{
-    constructor(musculos, frecuencia, ejercicios, fecha){
-        super(musculos, frecuencia)
-        this.ejercicios = ejercicios
+class Entrenamiento{
+    constructor(dia, fecha){
+        this.dia = dia
         this.fecha = fecha
         this.estadisticas = []
     }
@@ -111,14 +107,19 @@ class Entrenamiento extends Dia{
         return this.estadisticas[indice]
     }
 
-    crearEstadistica(peso, repeticiones, indice){
-        let ejercicio = this.darEjercicio(indice)
-        this.estadisticas.push(new Estadistica(ejercicio.nombre, ejercicio.descanso, ejercicio.series, ejercicio.orden, peso, repeticiones))
+    agregarEstadistica(peso, repeticiones, indice){
+        let ejercicio = this.dia.darEjercicio(indice)
+        this.estadisticas.push(new Estadistica(ejercicio, peso, repeticiones))
     }
-    
+
     get getFecha(){
         return this.fecha
     }
+
+    get getEstadisticas(){
+        return this.estadisticas
+    }
+    
 }
 
 class Ejercicio{
@@ -137,15 +138,14 @@ class Ejercicio{
         return this.descanso
     }
     
-    
     get getSeries(){
         return this.series 
     }
 }
 
-class Estadistica extends Ejercicio{
-    constructor(nombre, descanso, series, orden, peso, repeticiones){
-        super(nombre, descanso, series, orden)
+class Estadistica{
+    constructor(ejercicio, peso, repeticiones){
+        this.ejercicio = ejercicio
         this.peso = peso
         this.repeticiones = repeticiones
     }
@@ -156,27 +156,29 @@ class Estadistica extends Ejercicio{
 }
 
 
-    let Usuario1 = new Usuario("Valentin", 17, 74)
-    Usuario1.crearRutina("Push Pull Leg", 3)
-    let Rutina1 = Usuario1.darRutina(0)
-    Rutina1.crearDia("Pecho Hombro Tricep", 2)
-    let Dia1 = Rutina1.darDia(0)
-    Dia1.agregarEjercicio("Pecho plano", 120, 4, 1, Dia1)
-    Dia1.agregarEjercicio("Pecho Inclinado", 90, 3, 2, Dia1)
-    let Entrenamiento1 = Dia1.crearEntrenamiento("31/05/2024")
-    console.log(Entrenamiento1.getMusculos)
-    console.log(Entrenamiento1.getFecha)
-    Entrenamiento1.crearEstadistica(65, 9, 0)
-    Entrenamiento1.crearEstadistica(65, 6, 0)
-    Entrenamiento1.crearEstadistica(60, 6, 0)
-    Entrenamiento1.crearEstadistica(55, 8, 0)
-    for(let i = 0; i < Dia1.darEjercicio(0).getSeries; i++){
-    console.log(Entrenamiento1.darEstadistica(i).getNombre)
-    console.log(Entrenamiento1.darEstadistica(i).getRepeticion)
-}
+let Usuario1 = new Usuario("Valentin", 17, 74)
+Usuario1.crearRutina("Push Pull Leg", 3)
+let Rutina1 = Usuario1.darRutina(0)
+Rutina1.crearDia("Pecho Hombro Tricep", 2)
+let Dia1 = Rutina1.darDia(0)
+Dia1.agregarEjercicio("Press Banca", 120, 4, 1, Dia1)
+Dia1.agregarEjercicio("Pecho Inclinado", 90, 3, 2, Dia1)
+Dia1.agregarEntrenamiento("5/6/2024")
+Dia1.darEntrenamiento(0).agregarEstadistica(65, 8, 0)
+Dia1.darEntrenamiento(0).agregarEstadistica(60, 8, 0)
+Dia1.darEntrenamiento(0).agregarEstadistica(60, 6, 0)
+Dia1.darEntrenamiento(0).agregarEstadistica(55, 8, 0)
+Dia1.darEntrenamiento(0).agregarEstadistica(15, 9, 1)
+Dia1.darEntrenamiento(0).agregarEstadistica(15, 8, 1)
+Dia1.darEntrenamiento(0).agregarEstadistica(15, 7, 1)
 
-export default function App() {
-  return (
-    <Main />
-  );
+const Main = () => {
+
+    return (
+        <View style={Styles.container}>
+            <Text style={Styles.textoPrincipal}> {Dia1.darEntrenamiento(0).dia.getMusculos} </Text>
+            <Text style={Styles.textoSecundario}> {Dia1.darEntrenamiento(0).getFecha} </Text>
+            <EstadisticaLista prop = {Dia1.darEntrenamiento(0).getEstadisticas} />
+        </View>
+    )
 }
