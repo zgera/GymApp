@@ -1,14 +1,14 @@
-import { createErrorHandler } from 'expo/build/errors/ExpoErrorManager'
 import React from 'react'
 import {Text, View, StyleSheet, FlatList} from 'react-native'
 
-const Estadistica = ({props}) => {
+
+const listaEstadisticas = ({prop}) => {
     return (
         <FlatList
-            data={props}
+            data={prop}
             renderItem={({item: repo}) => (
-                <View key={repo.indice} style={Style.container}>
-                    <Text style={Style.textoPrincipal} >{repo.ejercicio}</Text>
+                <View key={repo.ejercicio.nombre} style={Style.container}>
+                    <Text style={Style.textoPrincipal} >{repo.ejercicio.getNombre}</Text>
                     <Text style={Style.dato} >Peso: {repo.peso}</Text>
                     <Text style={Style.dato}>Repeticiones: {repo.repeticiones}</Text>
                 </View>
@@ -19,19 +19,21 @@ const Estadistica = ({props}) => {
 
 const Style = StyleSheet.create({
     container:{
-        flexGrow: 1,
+        flex: 1,
         alignItems: 'center',
         backgroundColor: '#242425',
-        borderRadius: 10,
         margin: 10,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#6AD1FA',
         padding: 20,
-        width: 200,
+        width: 200
     },
     textoPrincipal: {
         marginBottom: 5,
         fontWeight: 'bold',
         fontSize: 20,
-        color: '#6AD1FA',
+        color: '#6AD1FA'
     },
     dato: {
         fontWeight: "bold",
@@ -40,4 +42,4 @@ const Style = StyleSheet.create({
     }
 })
 
-export default Estadistica
+export default listaEstadisticas
