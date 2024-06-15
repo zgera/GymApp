@@ -1,0 +1,1044 @@
+{
+    "muscle_group": {
+        "abs": [
+            {
+                "en": "Barbell Plate Ab Twist",
+                "es": "Twists de Abdominales con Disco",
+                "id": 1
+            },
+            {
+                "en": "Body Weight Ab Crunch",
+                "es": "Abdominales",
+                "id": 2
+            },
+            {
+                "en": "Body Weight Hanging Leg Raise",
+                "es": "Elevación de Piernas Colgado",
+                "id": 3
+            },
+            {
+                "en": "Body Weight Plank",
+                "es": "Plancha",
+                "id": 4
+            },
+            {
+                "en": "Dumbbell Ab Twist",
+                "es": "Twist con Mancuerna",
+                "id": 5
+            },
+            {
+                "en": "Machine Ab Crunch",
+                "es": "Abdominales en Máquina",
+                "id": 6
+            },
+            {
+                "en": "Weighted Hanging Leg Raise",
+                "es": "Elevación de Piernas Colgado con Peso",
+                "id": 7
+            },
+            {
+                "en": "Weighted Plank",
+                "es": "Plancha con Peso",
+                "id": 8
+            }
+        ],
+        "back": [
+            {
+                "en": "Barbell Bent Over Row",
+                "es": "Remo con Barra",
+                "id": 1
+            },
+            {
+                "en": "Barbell Chest-Supported T-Bar Row",
+                "es": "Remo T con Apoyo al Pecho",
+                "id": 2
+            },
+            {
+                "en": "Barbell Incline Bench Row",
+                "es": "Remo con Barra en Banco Inclinado",
+                "id": 3
+            },
+            {
+                "en": "Barbell One-Arm Row",
+                "es": "Remo Landmine",
+                "id": 4
+            },
+            {
+                "en": "Barbell Pendlay Row",
+                "es": "Remo Pendlay con Barra",
+                "id": 5
+            },
+            {
+                "en": "Barbell Reverse Grip Bent Over",
+                "es": "Remo con Barra Agarre Invertido",
+                "id": 6
+            },
+            {
+                "en": "Barbell Shrug",
+                "es": "Shrugs con Barra",
+                "id": 7
+            },
+            {
+                "en": "Barbell T-Bar Row",
+                "es": "Remo T",
+                "id": 8
+            },
+            {
+                "en": "Body Weight Back Extension",
+                "es": "Espinales",
+                "id": 9
+            },
+            {
+                "en": "Body Weight Inverted Row",
+                "es": "Remo Invertido con Peso Corporal",
+                "id": 10
+            },
+            {
+                "en": "Body Weight Pull-Up",
+                "es": "Dominadas",
+                "id": 11
+            },
+            {
+                "en": "Cable Narrow-Grip Lat Pull-Down",
+                "es": "Polea al Pecho con Agarre Estrecho",
+                "id": 12
+            },
+            {
+                "en": "Cable One-Arm Lat Pull-Down",
+                "es": "Jalón a un Brazo",
+                "id": 13
+            },
+            {
+                "en": "Cable One-Arm Row (Seated)",
+                "es": "Remo con Cable Unilateral Sentado",
+                "id": 14
+            },
+            {
+                "en": "Cable Reverse-Grip Lat Pull-Down",
+                "es": "Jalón al Pecho Agarre Supino",
+                "id": 15
+            },
+            {
+                "en": "Cable Row (Seated)",
+                "es": "Remo Gironda",
+                "id": 16
+            },
+            {
+                "en": "Cable Straight-Arm Pull-Down",
+                "es": "Pullover en Polea Alta",
+                "id": 17
+            },
+            {
+                "en": "Cable Wide-Grip Lat Pull-Down",
+                "es": "Jalón al Pecho Agarre Prono",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Bent Over Row",
+                "es": "Remo con Mancuernas",
+                "id": 19
+            },
+            {
+                "en": "Dumbbell Incline Bench Row",
+                "es": "Remo con Mancuernas en Banco Inclinado",
+                "id": 20
+            },
+            {
+                "en": "Dumbbell One-Arm Row",
+                "es": "Remo Unilateral con Mancuernas",
+                "id": 21
+            },
+            {
+                "en": "Dumbbell Reverse Grip Bent Over",
+                "es": "Remo con Mancuernas Agarre Invertido",
+                "id": 22
+            },
+            {
+                "en": "Dumbbell Shrug",
+                "es": "Shrugs con Mancuernas",
+                "id": 23
+            },
+            {
+                "en": "Machine Assisted Pull-Up",
+                "es": "Dominadas Asistidas en Máquina",
+                "id": 24
+            },
+            {
+                "en": "Machine Back Extension",
+                "es": "Extensión de Espalda en Máquina",
+                "id": 25
+            },
+            {
+                "en": "Machine Chest Supported Row",
+                "es": "Remo en Máquina con Apoyo al Pecho",
+                "id": 26
+            },
+            {
+                "en": "Machine Shrug",
+                "es": "",
+                "id": 27
+            },
+            {
+                "en": "Smith Machine Bent Over Row",
+                "es": "Remo con Barra en Smith",
+                "id": 28
+            },
+            {
+                "en": "Weighted Pull-Up",
+                "es": "Dominadas con Peso",
+                "id": 29
+            }
+        ],
+        "biceps": [
+            {
+                "en": "Barbell Close-Grip Biceps Curl",
+                "es": "Curl de Bíceps con Barra y Agarre Estrecho",
+                "id": 1
+            },
+            {
+                "en": "Barbell Concentration Biceps Curl",
+                "es": "Curl de Bíceps Concentrado con Barra",
+                "id": 2
+            },
+            {
+                "en": "Barbell Preacher Biceps Curl",
+                "es": "Curl de Bíceps en Predicador con Barra",
+                "id": 3
+            },
+            {
+                "en": "Barbell Regular-Grip Biceps Curl",
+                "es": "Curl de Bíceps con Barra",
+                "id": 4
+            },
+            {
+                "en": "Barbell Reverse-Grip Biceps Curl",
+                "es": "Curl de Bíceps con Barra y Agarre Inverso",
+                "id": 5
+            },
+            {
+                "en": "Barbell Wide-Grip Biceps Curl",
+                "es": "Curl de Bíceps con Barra y Agarre Amplio",
+                "id": 6
+            },
+            {
+                "en": "Body Weight Chin-Up",
+                "es": "Chin-Up",
+                "id": 7
+            },
+            {
+                "en": "Cable Bar Biceps Curl",
+                "es": "Curl de Bíceps en Polea",
+                "id": 8
+            },
+            {
+                "en": "Cable Incline Bench Biceps Curl",
+                "es": "Curl de Bíceps en Polea en Banco Inclinado",
+                "id": 9
+            },
+            {
+                "en": "Cable One-Arm Biceps Curl",
+                "es": "Curl de Bíceps Unilateral en Polea",
+                "id": 10
+            },
+            {
+                "en": "Cable Overhead Curl",
+                "es": "curl por Encima de la Cabeza en Polea",
+                "id": 11
+            },
+            {
+                "en": "Cable Rope Biceps Curl",
+                "es": "Curl de Bíceps en Polea con Soga",
+                "id": 12
+            },
+            {
+                "en": "Dumbbell Alternate Biceps Curl",
+                "es": "Curl de Bíceps con Mancuernas Alternado",
+                "id": 13
+            },
+            {
+                "en": "Dumbbell Concentration Biceps Curl",
+                "es": "Curl de Bíceps Concentrado con Mancuernas",
+                "id": 14
+            },
+            {
+                "en": "Dumbbell Hammer Biceps Curl",
+                "es": "Curl de Bíceps Martillo con Mancuernas",
+                "id": 15
+            },
+            {
+                "en": "Dumbbell Incline Bench Biceps Curl",
+                "es": "Curl de Bíceps con Mancuernas en Banco Inclinado",
+                "id": 16
+            },
+            {
+                "en": "Dumbbell One-Arm Biceps Curl",
+                "es": "Curl de Bíceps Unilateral con Mancuernas",
+                "id": 17
+            },
+            {
+                "en": "Dumbbell Preacher Biceps Curl",
+                "es": "Curl de Bíceps en Predicador con Mancuernas",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Reverse-Grip Biceps Curl",
+                "es": "Curl de Bíceps con Mancuerna y Agarre Invertido",
+                "id": 19
+            },
+            {
+                "en": "Machine Assisted Chin-Up",
+                "es": "Chin-Up Asistido",
+                "id": 20
+            },
+            {
+                "en": "Machine Biceps Curl",
+                "es": "Curl de Bíceps en Máquina",
+                "id": 21
+            },
+            {
+                "en": "Machine Preacher Biceps Curl",
+                "es": "Curl de Bíceps Predicador en Máquina",
+                "id": 22
+            },
+            {
+                "en": "Weighted Chin-Up",
+                "es": "Chin-Up con Peso",
+                "id": 23
+            }
+        ],
+        "calves": [
+            {
+                "en": "Barbell Calf Raise",
+                "es": "Elevación de Gemelos con Barra",
+                "id": 1
+            },
+            {
+                "en": "Dumbbell Calf Raise",
+                "es": "Elevación de Gemelos con Mancuernas",
+                "id": 2
+            },
+            {
+                "en": "Machine Calf Extension (Seated)",
+                "es": "Extensión de Gemelos Sentado",
+                "id": 3
+            },
+            {
+                "en": "Machine Leg Press Calf Extension (Seated/Laying)",
+                "es": "Extensión de Gemelos en Prensa (Sentado/Acuostado)",
+                "id": 4
+            },
+            {
+                "en": "Machine Calf Raise",
+                "es": "Elevación de Gemelos en Máquina",
+                "id": 5
+            }
+        ],
+        "chest": [
+            {
+                "en": "Barbell Decline Bench Press",
+                "es": "Press Declinado con Barra",
+                "id": 1
+            },
+            {
+                "en": "Barbell Flat Bench Press",
+                "es": "Press Banca",
+                "id": 2
+            },
+            {
+                "en": "Barbell Incline Bench Press",
+                "es": "Press Banca Inclinado",
+                "id": 3
+            },
+            {
+                "en": "Body Weight Decline Push-Up",
+                "es": "Flexión Declinada",
+                "id": 4
+            },
+            {
+                "en": "Body Weight Dip (Chest Variation)",
+                "es": "Fondos",
+                "id": 5
+            },
+            {
+                "en": "Body Weight Incline Push-Up",
+                "es": "Flexión Inclinada",
+                "id": 6
+            },
+            {
+                "en": "Cable Chest Press (Seated)",
+                "es": "Press con Cable Sentado",
+                "id": 7
+            },
+            {
+                "en": "Cable Chest Press (Standing)",
+                "es": "Press con Cable Parado",
+                "id": 8
+            },
+            {
+                "en": "Cable Crossover",
+                "es": "Cruce de Polea",
+                "id": 9
+            },
+            {
+                "en": "Cable Crossover (High Angle)",
+                "es": "Cruce de Polea (AA)",
+                "id": 10
+            },
+            {
+                "en": "Cable Crossover (Low Angle)",
+                "es": "Cruce de Polea (AB)",
+                "id": 11
+            },
+            {
+                "en": "Cable Flat Bench Fly",
+                "es": "Apertura con Cables",
+                "id": 12
+            },
+            {
+                "en": "Cable Incline Bench Fly",
+                "es": "Apertura con Cables Inclinado",
+                "id": 13
+            },
+            {
+                "en": "Dumbbell Decline Bench Fly",
+                "es": "Apertura con Mancuernas Declinado",
+                "id": 14
+            },
+            {
+                "en": "Dumbbell Decline Bench Press",
+                "es": "Press Banca Declinado con Mancuernas",
+                "id": 15
+            },
+            {
+                "en": "Dumbbell Flat Bench Fly",
+                "es": "Apertura con Mancuernas",
+                "id": 16
+            },
+            {
+                "en": "Dumbbell Flat Bench Press",
+                "es": "Press Banca con Mancuernas",
+                "id": 17
+            },
+            {
+                "en": "Dumbbell Incline Bench Fly",
+                "es": "Apertura con Mancuernas Inclinado",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Incline Bench Press",
+                "es": "Press Banca Inclinado con Mancuernas",
+                "id": 19
+            },
+            {
+                "en": "Machine Assisted Dip (Chest Variation)",
+                "es": "Apertura con Mancuernas Inclinado",
+                "id": 20
+            },
+            {
+                "en": "Machine Butterfly",
+                "es": "Mariposa en Máquina",
+                "id": 21
+            },
+            {
+                "en": "Machine Chest Press",
+                "es": "Press de Pecho en Máquina",
+                "id": 22
+            },
+            {
+                "en": "Machine Decline Chest Press",
+                "es": "Press de Pecho Declinado en Máquina",
+                "id": 23
+            },
+            {
+                "en": "Machine Incline Chest Press",
+                "es": "Press de Pecho Inclinado en Máquina",
+                "id": 24
+            },
+            {
+                "en": "Smith Machine Bench Press",
+                "es": "Press Banca en Smith",
+                "id": 25
+            },
+            {
+                "en": "Smith Machine Decline Chest Press",
+                "es": "Press Banca Declinado en Smith",
+                "id": 26
+            },
+            {
+                "en": "Smith Machine Incline Bench Press",
+                "es": "Press Banca Inclinado en Smith",
+                "id": 27
+            },
+            {
+                "en": "Weighted Decline Push-Up",
+                "es": "Flexiones Declinadas con Peso",
+                "id": 28
+            },
+            {
+                "en": "Weighted Dip (Chest Variation)",
+                "es": "Fondos con Peso",
+                "id": 29
+            },
+            {
+                "en": "Weighted Incline Push-Up",
+                "es": "Flexiones Inclinadas con Peso",
+                "id": 30
+            },
+            {
+                "en": "Weighted Push-Up",
+                "es": "Flexiones con Peso",
+                "id": 31
+            }
+        ],
+        "glutes_hamstrings": [
+            {
+                "en": "Barbell Deadlift",
+                "es": "Peso Muerto con Barra",
+                "id": 1
+            },
+            {
+                "en": "Barbell Deadlifts from Blocks",
+                "es": "Peso Muerto desde Bloques con Barra",
+                "id": 2
+            },
+            {
+                "en": "Barbell Deadlifts from Deficit",
+                "es": "Peso Muerto con Barra en Déficit",
+                "id": 3
+            },
+            {
+                "en": "Barbell Glute Bridge",
+                "es": "Puente de Glúteo con Barra",
+                "id": 4
+            },
+            {
+                "en": "Barbell Hip Thrust",
+                "es": "Hip Thrust con Barra",
+                "id": 5
+            },
+            {
+                "en": "Barbell Romanian Deadlift",
+                "es": "Peso Muerto Rumano con Barra",
+                "id": 6
+            },
+            {
+                "en": "Barbell Stiff-Legged Deadlift",
+                "es": "Peso Muerto con Piernas Rígidas y Barra",
+                "id": 7
+            },
+            {
+                "en": "Barbell Sumo Deadlift",
+                "es": "Peso Muerto Sumo con Barra",
+                "id": 8
+            },
+            {
+                "en": "Body Weight Glute-Ham Raise",
+                "es": "Elevación de Glúteos e Isquiotibiales",
+                "id": 9
+            },
+            {
+                "en": "Cable One-Legged Kickback",
+                "es": "Glúteos en Cable",
+                "id": 10
+            },
+            {
+                "en": "Cable Pull Through",
+                "es": "Tirón con Cable",
+                "id": 11
+            },
+            {
+                "en": "Dumbbell Glute Bridge",
+                "es": "Puente de Glúteo con Mancuernas",
+                "id": 12
+            },
+            {
+                "en": "Dumbbell Hip Thrust",
+                "es": "Hip Thrust con Mancuernas",
+                "id": 13
+            },
+            {
+                "en": "Dumbbell Romanian Deadlift",
+                "es": "Peso Muerto Rumano con Mancuernas",
+                "id": 14
+            },
+            {
+                "en": "Dumbbell Stiff-Legged Deadlift",
+                "es": "Peso Muerto con Piernas Rígidas y Mancuerna",
+                "id": 15
+            },
+            {
+                "en": "Machine Glute-Ham Raise",
+                "es": "Elevación de Glúteos e Isquiotibiales en Máquina",
+                "id": 16
+            },
+            {
+                "en": "Machine Laying Leg Curl",
+                "es": "Curl Femoral Acostado",
+                "id": 17
+            },
+            {
+                "en": "Machine Reverse Hyperextension",
+                "es": "Hiperextensión Invertida en Máquina",
+                "id": 18
+            },
+            {
+                "en": "Machine Seated Leg Curl",
+                "es": "Curl Femoral Sentado",
+                "id": 19
+            },
+            {
+                "en": "Machine Standing Leg Curl",
+                "es": "Curl Femoral de Pie",
+                "id": 20
+            }
+        ],
+        "other": [
+            {
+                "en": "Barbell Wrist Curl",
+                "es": "Curl de Muñeca con Barra",
+                "id": 1
+            },
+            {
+                "en": "Dumbbell Wrist Curl",
+                "es": "Curl de Muñeca con Mancuernas",
+                "id": 2
+            },
+            {
+                "en": "Neck Curl",
+                "es": "Curl de Cuello",
+                "id": 3
+            },
+            {
+                "en": "Neck Extension",
+                "es": "Extensión de Cuello",
+                "id": 4
+            }
+        ],
+        "quadriceps": [
+            {
+                "en": "Barbell Box Squat",
+                "es": "Sentadilla en Caja con Barra",
+                "id": 1
+            },
+            {
+                "en": "Barbell Bulgarian Split-Squat",
+                "es": "Sentadilla Búlgara con Barra",
+                "id": 2
+            },
+            {
+                "en": "Barbell Front Squat",
+                "es": "Sentadilla Frontal con Barra",
+                "id": 3
+            },
+            {
+                "en": "Barbell Jump Squat",
+                "es": "Sentadilla con Salto y Barra",
+                "id": 4
+            },
+            {
+                "en": "Barbell Squat",
+                "es": "Sentadilla con Barra",
+                "id": 5
+            },
+            {
+                "en": "Barbell Standing Lunge",
+                "es": "Estocada de Pie con Barra",
+                "id": 6
+            },
+            {
+                "en": "Barbell Step Up",
+                "es": "Step-Up con Barra",
+                "id": 7
+            },
+            {
+                "en": "Barbell Walking Lunge",
+                "es": "Estocada Caminando con Barra",
+                "id": 8
+            },
+            {
+                "en": "Body Weight Bulgarian Split-Squat",
+                "es": "Sentadilla Búlgara",
+                "id": 9
+            },
+            {
+                "en": "Body Weight Pistol Squat",
+                "es": "Sentadilla Pistol",
+                "id": 10
+            },
+            {
+                "en": "Body Weight Squat",
+                "es": "Sentadillas",
+                "id": 11
+            },
+            {
+                "en": "Body Weight Standing Lunge",
+                "es": "Estocadas de Pie",
+                "id": 12
+            },
+            {
+                "en": "Body Weight Step Up",
+                "es": "Step-Up",
+                "id": 13
+            },
+            {
+                "en": "Body Weight Walking Lunge",
+                "es": "Estocada Caminando",
+                "id": 14
+            },
+            {
+                "en": "Dumbbell Body Weight Squat",
+                "es": "Sentadilla con Mancuerna",
+                "id": 15
+            },
+            {
+                "en": "Dumbbell Bulgarian Split-Squat",
+                "es": "Sentadilla Búlgara con Mancuerna",
+                "id": 16
+            },
+            {
+                "en": "Dumbbell Goblet Squat",
+                "es": "Sentadilla con Mancuerna Rusa",
+                "id": 17
+            },
+            {
+                "en": "Dumbbell Standing Lunge",
+                "es": "Estocada de Pie con Mancuerna",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Step Up",
+                "es": "Step-Up con Mancuerna",
+                "id": 19
+            },
+            {
+                "en": "Dumbbell Walking Lunge",
+                "es": "Estocada Caminando con Mancuerna",
+                "id": 20
+            },
+            {
+                "en": "Machine Hack Squat",
+                "es": "Sentadilla Hack",
+                "id": 21
+            },
+            {
+                "en": "Machine Laying Leg Press",
+                "es": "Prensa Acostado",
+                "id": 22
+            },
+            {
+                "en": "Machine Leg Press",
+                "es": "Prensa 45°",
+                "id": 23
+            },
+            {
+                "en": "Machine Seated Leg Press",
+                "es": "Prensa Sentado",
+                "id": 24
+            },
+            {
+                "en": "Machine Single-Leg Press",
+                "es": "Prensa 45° Unilateral",
+                "id": 25
+            }
+        ],
+        "shoulders": [
+            {
+                "en": "Barbell Front Raise",
+                "es": "Elevaciones Frontales con Barra",
+                "id": 1
+            },
+            {
+                "en": "Barbell One-Arm Linear Jammer",
+                "es": "Press con Barra en Punta",
+                "id": 2
+            },
+            {
+                "en": "Smith Machine Shoulder Press",
+                "es": "Press Militar con Barra en Smith",
+                "id": 30
+            },
+            {
+                "en": "Barbell Seated Shoulder Press",
+                "es": "Press militar con Barra Sentado",
+                "id": 4
+            },
+            {
+                "en": "Barbell Standing Shoulder Press",
+                "es": "Press Militar con Barra",
+                "id": 5
+            },
+            {
+                "en": "Barbell Upright Row",
+                "es": "Remo Vertical con Barra",
+                "id": 6
+            },
+            {
+                "en": "Body Weight Handstand Push-Up",
+                "es": "Flexiones de Pino",
+                "id": 7
+            },
+            {
+                "en": "Body Weight Pike Push-Up",
+                "es": "Flexiones Elevadas",
+                "id": 8
+            },
+            {
+                "en": "Cable Face Pull",
+                "es": "Jalón al Rostro",
+                "id": 9
+            },
+            {
+                "en": "Cable Front Raise",
+                "es": "Elevaciones Frontales en Polea",
+                "id": 10
+            },
+            {
+                "en": "Cable Lateral Raise",
+                "es": "Vuelos Laterales en Polea",
+                "id": 11
+            },
+            {
+                "en": "Cable Rear Delt Fly",
+                "es": "Apertura de Deltoides Posteriores en Polea",
+                "id": 12
+            },
+            {
+                "en": "Cable Shoulder Press (Seated)",
+                "es": "Press Militar en Polea Sentado",
+                "id": 13
+            },
+            {
+                "en": "Cable Standing Shoulder Press (Standing)",
+                "es": "Press Militar en Polea de Pie",
+                "id": 14
+            },
+            {
+                "en": "Cable Upright Row",
+                "es": "Remo Vertical en Polea",
+                "id": 15
+            },
+            {
+                "en": "Dumbbell Arnold Press",
+                "es": "Arnold Press con Mancuernas",
+                "id": 16
+            },
+            {
+                "en": "Dumbbell Front Raise",
+                "es": "Elevaciones Frontales con Mancuernas",
+                "id": 17
+            },
+            {
+                "en": "Dumbbell One-Arm Lateral Raise",
+                "es": "Vuelos Laterales Unilaterales con Mancuernas",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Rear Delt Raise",
+                "es": "Elevación de Deltoides Posteriores con Mancuernas",
+                "id": 19
+            },
+            {
+                "en": "Dumbbell Reverse Fly",
+                "es": "Apertura Invertida con Mancuernas",
+                "id": 20
+            },
+            {
+                "en": "Dumbbell Seated Shoulder Press",
+                "es": "Press Militar con Mancuernas Sentado",
+                "id": 21
+            },
+            {
+                "en": "Dumbbell Side Lateral Raise",
+                "es": "Vuelos Laterales con Mancuerna",
+                "id": 22
+            },
+            {
+                "en": "Dumbbell Standing One-Arm Press",
+                "es": "Press Militar con Mancuerna Unilateral",
+                "id": 23
+            },
+            {
+                "en": "Dumbbell Standing Shoulder Press",
+                "es": "Press Militar con Mancuernas de Pie",
+                "id": 24
+            },
+            {
+                "en": "Dumbbell Upright Row",
+                "es": "Remo Vertical con Mancuernas",
+                "id": 25
+            },
+            {
+                "en": "Machine Lateral Raise",
+                "es": "Vuelos Laterales en Máquina",
+                "id": 26
+            },
+            {
+                "en": "Machine Reverse Fly",
+                "es": "Apertura Inversa en Máquina",
+                "id": 27
+            },
+            {
+                "en": "Machine Shoulder Press",
+                "es": "Press Militar en Máquina",
+                "id": 28
+            },
+            {
+                "en": "Machine Upright Row",
+                "es": "Remo Vertical en Máquina",
+                "id": 29
+            }
+        ],
+        "triceps": [
+            {
+                "en": "Barbell Close-Grip Bench Press",
+                "es": "Press Banca con Agarre Estrecho",
+                "id": 1
+            },
+            {
+                "en": "Barbell Decline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Barra en Banco Declinado",
+                "id": 2
+            },
+            {
+                "en": "Barbell Flat Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Barra en Banco",
+                "id": 3
+            },
+            {
+                "en": "Barbell Incline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Barra en Banco Inclinado",
+                "id": 4
+            },
+            {
+                "en": "Barbell Overhead Triceps Extension",
+                "es": "Tríceps Katana con Barra",
+                "id": 5
+            },
+            {
+                "en": "Body Weight Bench Dip",
+                "es": "Fondos en Banco",
+                "id": 6
+            },
+            {
+                "en": "Body Weight Dips (Triceps Variation)",
+                "es": "Fondos (Tríceps)",
+                "id": 7
+            },
+            {
+                "en": "Cable Decline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Polea en Banco Declinado",
+                "id": 8
+            },
+            {
+                "en": "Cable Flat Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Polea en Banco",
+                "id": 9
+            },
+            {
+                "en": "Cable Incline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Polea en Banco Inclinado",
+                "id": 10
+            },
+            {
+                "en": "Cable One-Arm Overhead Triceps Extension",
+                "es": "Tríceps Katana Unilateral",
+                "id": 11
+            },
+            {
+                "en": "Cable Overhead Triceps Extension",
+                "es": "Tríceps Katana",
+                "id": 12
+            },
+            {
+                "en": "Cable Reverse-Grip Triceps Push-Down",
+                "es": "Extensión de Tríceps en Polea con Agarre Inverso",
+                "id": 13
+            },
+            {
+                "en": "Cable Rope Triceps Push-Down",
+                "es": "Extensión de Tríceps en Polea con Soga",
+                "id": 14
+            },
+            {
+                "en": "Cable Straight-Bar Triceps Push-Down",
+                "es": "Extensión de Tríceps en Polea Alta con Barra",
+                "id": 15
+            },
+            {
+                "en": "Cable Triceps Kickback",
+                "es": "Patada de Tríceps en Polea Baja",
+                "id": 16
+            },
+            {
+                "en": "Cable V-Bar Triceps Push-Down",
+                "es": "Extensión de Tríceps en Polea con Barra V",
+                "id": 17
+            },
+            {
+                "en": "Dumbbell Bent Over Triceps Extension",
+                "es": "Patada de Tríceps con Mancuernas ",
+                "id": 18
+            },
+            {
+                "en": "Dumbbell Close-Grip Bench Press",
+                "es": "Press Banca con Mancuernas y Agarre Estrecho",
+                "id": 19
+            },
+            {
+                "en": "Dumbbell Decline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Mancuernas en Banco Declinado",
+                "id": 20
+            },
+            {
+                "en": "Dumbbell Flat Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Mancuernas en Banco",
+                "id": 21
+            },
+            {
+                "en": "Dumbbell Incline Bench Triceps Extension",
+                "es": "Extensión de Tríceps con Mancuernas en Banco Inclinado",
+                "id": 22
+            },
+            {
+                "en": "Dumbbell One-Arm Overhead Triceps Extension",
+                "es": "Tríceps Katana con Mancuerna Unilateral",
+                "id": 23
+            },
+            {
+                "en": "Dumbbell Overhead Triceps Extension",
+                "es": "Tríceps Katana con Mancuerna",
+                "id": 24
+            },
+            {
+                "en": "Dumbbell Triceps Kickback",
+                "es": "Patada de Tríceps con Mancuernas de Pie",
+                "id": 25
+            },
+            {
+                "en": "Machine Assisted Dips (Triceps Variation)",
+                "es": "Fondos Asistidos (Tríceps)",
+                "id": 26
+            },
+            {
+                "en": "Machine Triceps Extension",
+                "es": "Extensión de Tríceps en Máquina",
+                "id": 27
+            },
+            {
+                "en": "Smith Machine Close-Grip Bench Press",
+                "es": "Press Banca con Agarre Estrecho en Smith",
+                "id": 28
+            },
+            {
+                "en": "Weighted Bench Dip",
+                "es": "Fondos en Banco con Peso",
+                "id": 29
+            },
+            {
+                "en": "Weighted Dips (Triceps Variation)",
+                "es": "Fondos con Peso (Tríceps)",
+                "id": 30
+            }
+        ]
+    }
+}
