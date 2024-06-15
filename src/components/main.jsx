@@ -1,7 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Button, Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import EstadisticaLista from './estadistica';
+import EstadisticaLista from './statistics';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Timer from './timer';
+import RoutineImage from './routine';
 
 class Usuario {
     constructor(nombre, edad, peso){
@@ -181,6 +185,31 @@ Dia1.darEntrenamiento(0).agregarEstadistica(15, 9, 1)
 Dia1.darEntrenamiento(0).agregarEstadistica(15, 8, 1)
 Dia1.darEntrenamiento(0).agregarEstadistica(15, 7, 1)
 
+export function HomePage({ navigation }) {
+    return (
+        <View style={styles.appContainer}>
+           <Main />
+           <Button title="Go to Timer" onPress={() => navigation.navigate('Routine')}/>
+        </View>
+    );
+}
+
+export function TimerPage() {
+    return (
+        <View style={styles.appContainer}>
+           <Timer />
+        </View>
+    );
+}
+
+export function RoutinePage() {
+    return (
+        <View style={styles.appContainer}>
+           <RoutineImage />
+        </View>
+    );
+}
+
 const Main = () => {
 
     return (
@@ -191,6 +220,14 @@ const Main = () => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    appContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
 
 const Styles = StyleSheet.create({
     container: {

@@ -1,0 +1,12 @@
+{
+    "images": [
+        {
+            "name": "Routine",
+            "imgAlias": "../assets/routineHardCoded.png"
+        },
+        {
+            "name": "",
+            "imgAlias": "../assets/"
+        }
+    ]
+}
