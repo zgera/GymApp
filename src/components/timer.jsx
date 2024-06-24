@@ -1,13 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Animated, Easing } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import Animated, { useAnimatedProps, useSharedValue, withTiming } from 'react-native-reanimated';
+import { Circle, Svg } from 'react-native-svg';
+
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+
+const radius = 45;
+const circumference = radius * Math.PI * 2;
 
 const Timer = () => {
     const [totalDuration, setTotalDuration] = useState(60);
     const [currentTime, setCurrentTime] = useState(60);
-    const [inputTime, setInputTime] = useState('00:00');
-    const [timerExpired, setTimerExpired] = useState(false);
     const countdownInterval = useRef(null);
-    const animatedValue = useRef(new Animated.Value(0)).current;
+    const strokeOffset = useSharedValue(circumference);
+
+    const animatedCircleProps = useAnimatedProps(() => {
+        return {
+            strokeDashoffset: strokeOffset.value,
+        };
+    });
 
     useEffect(() => {
         resetTimer();
@@ -16,94 +27,57 @@ const Timer = () => {
 
     useEffect(() => {
         if (currentTime === 0) {
-            setTimerExpired(true);
+            clearInterval(countdownInterval.current);
         }
     }, [currentTime]);
-
-    const formatTime = (seconds) => {
-        const absSeconds = Math.abs(seconds);
-        const minutes = Math.floor(absSeconds / 60).toString().padStart(2, '0');
-        const secs = (absSeconds % 60).toString().padStart(2, '0');
-        const prefix = seconds < 0 ? '-' : ''; // Add a prefix for negative time
-        return prefix + `${minutes}:${secs}`;
-    };    
-
-    const parseTime = (timeString) => {
-        const [minutes, seconds] = timeString.split(':').map(Number);
-        return (minutes * 60) + seconds;
-    };
-
-    const isValidTimeFormat = (timeString) => {
-        // Regular expression to match the format mm:ss
-        const timeRegex = /^[0-5][0-9]:[0-5][0-9]$/;
-        return timeRegex.test(timeString);
-    };
 
     const resetTimer = () => {
         clearInterval(countdownInterval.current);
         setCurrentTime(totalDuration);
-        setTimerExpired(false);
-        animatedValue.setValue(0);
-        Animated.timing(animatedValue, {
-            toValue: 1,
-            duration: totalDuration * 1000,
-            easing: Easing.linear,
-            useNativeDriver: false
-        }).start();
+        strokeOffset.value = withTiming(0, { duration: 0 });
+        strokeOffset.value = withTiming(circumference, { duration: totalDuration * 1000 });
         countdownInterval.current = setInterval(() => {
-            setCurrentTime((prevTime) => prevTime - 1);
+            setCurrentTime((prevTime) => {
+                if (prevTime > 0) {
+                    strokeOffset.value = withTiming(prevTime / totalDuration * circumference, { duration: 1000 });
+                    return prevTime - 1;
+                } else {
+                    clearInterval(countdownInterval.current);
+                    return 0;
+                }
+            });
         }, 1000);
     };
-
-    const setTimer = () => {
-        if (isValidTimeFormat(inputTime)) {
-            const newDuration = parseTime(inputTime);
-            setTotalDuration(newDuration);
-        } else {
-            // Display an error message or handle invalid input
-            console.log("Invalid time format. Please enter time in mm:ss format.");
-            setInputTime('00:00'); // Reset input to '00:00'
-        }
-    };
-
-    const circumference = 56 * 2 * Math.PI;
-    const strokeDashoffset = animatedValue.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, circumference],
-    });
 
     return (
         <View style={styles.container}>
             <View style={styles.countdownContainer}>
-                <View style={styles.circle}>
-                    <Animated.View
-                        style={[
-                            styles.countdownCircle,
-                            {
-                                strokeDashoffset,
-                                strokeDasharray: circumference,
-                                borderColor: timerExpired ? 'red' : '#3498db', // Change border color when timer expired
-                            },
-                        ]}
-                    />
-                    <Text style={styles.countdownText}>{formatTime(currentTime)}</Text>
-                </View>
+                <Svg height="100%" width="100%" viewBox="0 0 100 100" style={{ transform: [{ scaleX: -1 }] }}>
+                    <Svg height="100%" width="100%" viewBox="0 0 100 100" rotate="-90">
+                        <Circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            stroke="#66347F"
+                            strokeWidth="10"
+                            fill="transparent"
+                        />
+                        <AnimatedCircle
+                            animatedProps={animatedCircleProps}
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            strokeDasharray={circumference}
+                            strokeWidth="10"
+                            fill="transparent"
+                            stroke="#E7E7E7"
+                        />
+                    </Svg>
+                </Svg>
+                <Text style={styles.countdownText}>{currentTime}</Text>
             </View>
             <View style={styles.controls}>
-                <TextInput
-                    style={styles.input}
-                    value={inputTime}
-                    onChangeText={(text) => {
-                        
-                        if (text.length <= 5) {
-                            setInputTime(text);
-                        }
-                    }}
-                    placeholder="mm:ss"
-                    maxLength={5} 
-                />
-                <Button title="✅" onPress={setTimer} />
-                <Button title="🔁" onPress={resetTimer} />
+                <Button title="Reset" onPress={resetTimer} />
             </View>
         </View>
     );
@@ -121,41 +95,20 @@ const styles = StyleSheet.create({
         width: 128,
         height: 128,
     },
-    circle: {
-        width: 128,
-        height: 128,
-        borderRadius: 64,
-        borderWidth: 8,
-        borderColor: '#e6e6e6',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    countdownCircle: {
-        position: 'absolute',
-        width: 128,
-        height: 128,
-        borderRadius: 64,
-        borderWidth: 8,
-        transform: [{ rotate: '-90deg' }],
-        transformOrigin: 'center center',
-    },
     countdownText: {
+        position: 'absolute',
         fontSize: 24,
         fontWeight: 'bold',
         color: '#333',
+        textAlign: 'center',
+        width: '100%',
+        top: '40%',
     },
     controls: {
         marginTop: 20,
         flexDirection: 'row',
-        gap: 10,
-    },
-    input: {
-        padding: 8,
-        fontSize: 16,
-        backgroundColor: '#a7a7a7',
-        width: 60,
-        textAlign: 'center',
-        marginRight: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 
