@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Pressable, Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import EstadisticaLista from './statistics';
 import Timer from './timer';
@@ -185,7 +185,7 @@ export function HomePage({ navigation }) {
     return (
         <View style={styles.appContainer}>
             <Main />
-            <Button title="Go to Timer" onPress={() => navigation.navigate('Timer')} />
+            <Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}> <Text>Go to Timer</Text> </Pressable>
         </View>
     );
 }
@@ -224,23 +224,15 @@ export function SubirEstadisticaPage(){
 
 const Main = () => {
     return (
-        <View style={Styles.container}>
-            <Text style={Styles.textoPrincipal}>{Dia1.darEntrenamiento(0).dia.getMusculos}</Text>
-            <Text style={Styles.textoSecundario}>{Dia1.darEntrenamiento(0).getFecha}</Text>
+        <View style={styles.container}>
+            <Text style={styles.textoPrincipal}>{Dia1.darEntrenamiento(0).dia.getMusculos}</Text>
+            <Text style={styles.textoSecundario}>{Dia1.darEntrenamiento(0).getFecha}</Text>
             <EstadisticaLista prop={Dia1.darEntrenamiento(0).getEstadisticas} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    appContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
-
-const Styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
@@ -258,6 +250,20 @@ const Styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         marginBottom: 10,
+    },
+    appContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#6CD4FA',
+        height: 35,
+        width: 100,
+        margin: 25,
+        borderRadius: 5,
     },
 });
 

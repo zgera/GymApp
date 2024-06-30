@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import Animated, { useAnimatedProps, useSharedValue, withTiming } from 'react-native-reanimated';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import Animated, { useAnimatedProps, useSharedValue, withTiming, Easing } from 'react-native-reanimated';
 import { Circle, Svg } from 'react-native-svg';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -9,8 +9,8 @@ const radius = 45;
 const circumference = radius * Math.PI * 2;
 
 const Timer = () => {
-    const [totalDuration, setTotalDuration] = useState(60);
-    const [currentTime, setCurrentTime] = useState(60);
+    const [totalDuration, setTotalDuration] = useState(5);
+    const [currentTime, setCurrentTime] = useState(5);
     const countdownInterval = useRef(null);
     const strokeOffset = useSharedValue(circumference);
 
@@ -25,59 +25,67 @@ const Timer = () => {
         return () => clearInterval(countdownInterval.current);
     }, [totalDuration]);
 
-    useEffect(() => {
-        if (currentTime === 0) {
-            clearInterval(countdownInterval.current);
-        }
-    }, [currentTime]);
+    function formatTime(seconds) {
+        const absSeconds = Math.abs(seconds);
+        const minutes = Math.floor(absSeconds / 60);
+        const remainingSeconds = absSeconds % 60;
+        const paddedMinutes = String(minutes).padStart(2, '0');
+        const paddedSeconds = String(remainingSeconds).padStart(2, '0');
+        const sign = seconds < 0 ? '-' : '';
+        return `${sign}${paddedMinutes}:${paddedSeconds}`;
+    }
+
+    const formattedTime = formatTime(currentTime);
 
     const resetTimer = () => {
         clearInterval(countdownInterval.current);
         setCurrentTime(totalDuration);
-        strokeOffset.value = withTiming(0, { duration: 0 });
-        strokeOffset.value = withTiming(circumference, { duration: totalDuration * 1000 });
+        strokeOffset.value = 0;
+        strokeOffset.value = withTiming(circumference, {
+            duration: totalDuration * 1000,
+            easing: Easing.linear,
+        });
         countdownInterval.current = setInterval(() => {
-            setCurrentTime((prevTime) => {
-                if (prevTime > 0) {
-                    strokeOffset.value = withTiming(prevTime / totalDuration * circumference, { duration: 1000 });
-                    return prevTime - 1;
-                } else {
-                    clearInterval(countdownInterval.current);
-                    return 0;
-                }
-            });
+            setCurrentTime((prevTime) => prevTime - 1);
         }, 1000);
     };
+
+    useEffect(() => {
+        resetTimer();
+    }, []);
 
     return (
         <View style={styles.container}>
             <View style={styles.countdownContainer}>
-                <Svg height="100%" width="100%" viewBox="0 0 100 100" style={{ transform: [{ scaleX: -1 }] }}>
-                    <Svg height="100%" width="100%" viewBox="0 0 100 100" rotate="-90">
+                <Svg height="100%" width="100%" viewBox="0 0 100 100" transform="rotate(-90 0 0)">
+                    {currentTime <= 0 && (
                         <Circle
                             cx="50"
                             cy="50"
-                            r="45"
-                            stroke="#66347F"
-                            strokeWidth="10"
-                            fill="transparent"
-                        />
-                        <AnimatedCircle
-                            animatedProps={animatedCircleProps}
-                            cx="50"
-                            cy="50"
-                            r="45"
+                            r={radius}
                             strokeDasharray={circumference}
-                            strokeWidth="10"
+                            strokeWidth="7"
                             fill="transparent"
-                            stroke="#E7E7E7"
+                            stroke="#e0222b"
                         />
-                    </Svg>
+                    )}
+                    <AnimatedCircle
+                        animatedProps={animatedCircleProps}
+                        cx="50"
+                        cy="50"
+                        r={radius}
+                        strokeDasharray={circumference}
+                        strokeWidth="7"
+                        fill="transparent"
+                        stroke="#4287f5"
+                    />
                 </Svg>
-                <Text style={styles.countdownText}>{currentTime}</Text>
+                <Text style={styles.countdownText}>{formattedTime}</Text>
             </View>
             <View style={styles.controls}>
-                <Button title="Reset" onPress={resetTimer} />
+                <Pressable onPress={resetTimer} style={styles.button}>
+                    <Text>Reset</Text>
+                </Pressable>
             </View>
         </View>
     );
@@ -109,6 +117,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    button: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#6CD4FA',
+        height: 35,
+        width: 100,
+        margin: 25,
+        borderRadius: 5,
     },
 });
 
