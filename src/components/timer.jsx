@@ -4,13 +4,11 @@ import Animated, { useAnimatedProps, useSharedValue, withTiming, Easing } from '
 import { Circle, Svg } from 'react-native-svg';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-
 const radius = 45;
 const circumference = radius * Math.PI * 2;
 
-const Timer = () => {
-    const [totalDuration, setTotalDuration] = useState(5);
-    const [currentTime, setCurrentTime] = useState(5);
+const Timer = ({ totalDuration }) => {
+    const [currentTime, setCurrentTime] = useState(totalDuration);
     const countdownInterval = useRef(null);
     const strokeOffset = useSharedValue(circumference);
 
@@ -20,12 +18,7 @@ const Timer = () => {
         };
     });
 
-    useEffect(() => {
-        resetTimer();
-        return () => clearInterval(countdownInterval.current);
-    }, [totalDuration]);
-
-    function formatTime(seconds) {
+    const formatTime = (seconds) => {
         const absSeconds = Math.abs(seconds);
         const minutes = Math.floor(absSeconds / 60);
         const remainingSeconds = absSeconds % 60;
@@ -33,7 +26,7 @@ const Timer = () => {
         const paddedSeconds = String(remainingSeconds).padStart(2, '0');
         const sign = seconds < 0 ? '-' : '';
         return `${sign}${paddedMinutes}:${paddedSeconds}`;
-    }
+    };
 
     const formattedTime = formatTime(currentTime);
 
@@ -49,6 +42,11 @@ const Timer = () => {
             setCurrentTime((prevTime) => prevTime - 1);
         }, 1000);
     };
+
+    useEffect(() => {
+        resetTimer();
+        return () => clearInterval(countdownInterval.current);
+    }, [totalDuration]);
 
     useEffect(() => {
         resetTimer();

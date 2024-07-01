@@ -5,6 +5,7 @@ import EstadisticaLista from './statistics';
 import Timer from './timer';
 import RoutineImage from './routine';
 //import Entrenamientos from './entrenamientos.jsx'
+import Exercises from './exercises.jsx';
 import SubirEstadistica from './subirEstadistica.jsx'
 import RutinaDetalle from './rutinaDetalle.jsx'
 
@@ -80,14 +81,6 @@ class Dia {
         this.entrenamientos = [];
     }
 
-    get getMusculos(){
-        return this.musculos;
-    }
-
-    get getEjercicios(){
-        return this.ejercicios;
-    }
-
     agregarEjercicio(ejercicio, descanso, series, orden){
         this.ejercicios.push(new Ejercicio(ejercicio, descanso, series, orden));
     }
@@ -96,16 +89,24 @@ class Dia {
         return this.ejercicios[indice];
     }
 
-    get darCantidadDeEjercicios(){
-        return this.ejercicios.length;
-    }
-
     agregarEntrenamiento(fecha){
         this.entrenamientos.push(new Entrenamiento(this, fecha));
     }
 
     darEntrenamiento(indice){
         return this.entrenamientos[indice];
+    }
+
+    get darCantidadDeEjercicios(){
+        return this.ejercicios.length;
+    }
+
+    get getMusculos(){
+        return this.musculos;
+    }
+
+    get getEjercicios(){
+        return this.ejercicios;
     }
 }
 
@@ -116,14 +117,6 @@ class Entrenamiento {
         this.estadisticas = [];
     }
 
-    get getFecha(){
-        return this.fecha;
-    }
-
-    get getEstadisticas(){
-        return this.estadisticas;
-    }
-
     darEstadistica(indice){
         return this.estadisticas[indice];
     }
@@ -131,6 +124,14 @@ class Entrenamiento {
     agregarEstadistica(peso, repeticiones, indice){
         let ejercicio = this.dia.darEjercicio(indice);
         this.estadisticas.push(new Estadistica(ejercicio, peso, repeticiones));
+    }
+
+    get getFecha(){
+        return this.fecha;
+    }
+
+    get getEstadisticas(){
+        return this.estadisticas;
     }
 }
 
@@ -185,26 +186,40 @@ export function HomePage({ navigation }) {
     return (
         <View style={styles.appContainer}>
             <Main />
-            <Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}> <Text>Go to Timer</Text> </Pressable>
+            <Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}> <Text>Timer</Text> </Pressable>
         </View>
     );
 }
 
-export function TimerPage() {
+export function TimerPage({ navigation, duration }) {
+    duration = 180
     return (
         <View style={styles.appContainer}>
-            <Timer />
+            <Timer totalDuration={duration}/>
+            <Pressable onPress={() => navigation.navigate('Exercises', { ejercicios: Dia1.getEjercicios })} style={styles.button}> <Text>Exercises</Text> </Pressable>
         </View>
     );
 }
 
-export function RoutinePage() {
+export function RoutinePage({ navigation, exercise }) {
     return (
         <View style={styles.appContainer}>
             <RoutineImage />
+            <Pressable onPress={() => navigation.navigate('Exercises', { ejercicios: Dia1.getEjercicios })} style={styles.button}>Exercises</Pressable>
         </View>
     );
 }
+
+export function ExercisesPage({ navigation, route }) {
+    const { ejercicios } = route.params;
+    return (
+        <View style={styles.appContainer}>
+            <Exercises ejercicios={ejercicios} navigation={navigation} />
+            {/*<Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}>Timer</Pressable>*/}
+        </View>
+    );
+}
+
 
 export function RutinaDetallePage() {
     return (
