@@ -10,161 +10,187 @@ import SubirEstadistica from './subirEstadistica.jsx'
 import RutinaDetalle from './rutinaDetalle.jsx'
 
 class Usuario {
+    #nombre
+    #edad
+    #peso
+    #rutinas
+
     constructor(nombre, edad, peso){
-        this.nombre = nombre;
-        this.edad = edad;
-        this.peso = peso;
-        this.rutinas = [];
+        this.#nombre = nombre;
+        this.#edad = edad;
+        this.#peso = peso;
+        this.#rutinas = [];
     }
 
     crearRutina(nombre){
-        this.rutinas.push(new Rutina(nombre));
+        this.#rutinas.push(new Rutina(nombre));
     }
 
     darRutina(indice){
-        return this.rutinas[indice];
+        return this.#rutinas[indice];
     }
 
     get getNombre(){
-        return this.nombre;
+        return this.#nombre;
     }
 
     get getEdad(){
-        return this.edad;
+        return this.#edad;
     }
     
     get getPeso(){
-        return this.peso;
+        return this.#peso;
     }
 
     get getRutinas(){
-        return this.rutinas;
+        return this.#rutinas;
     }
     
     get getCantidadDeRutinas(){
-        return this.rutinas.length;
+        return this.#rutinas.length;
     }
 }
 
 class Rutina {
+    #nombre
+    #dias
+
     constructor(nombre){
-        this.nombre = nombre;
-        this.dias = [];
+        this.#nombre = nombre;
+        this.#dias = [];
     }
 
     crearDia(musculos, frecuencia){
-        this.dias.push(new Dia(musculos, frecuencia));
+        this.#dias.push(new Dia(musculos, frecuencia));
     }
 
     darDia(indice){
-        return this.dias[indice];
+        return this.#dias[indice];
     }
 
     get getNombre(){
-        return this.nombre;
+        return this.#nombre;
     }
 
     get getDias(){
-        return this.dias;
+        return this.#dias;
     }
 
     get getCantidadDeDias(){
-        return this.dias.length;
+        return this.#dias.length;
     }
 }
 
 class Dia {
+    #musculos
+    #frecuencia
+    #ejercicios
+    #entrenamientos
+
     constructor(musculos, frecuencia){
-        this.musculos = musculos;
-        this.frecuencia = frecuencia;
-        this.ejercicios = [];
-        this.entrenamientos = [];
+        this.#musculos = musculos;
+        this.#frecuencia = frecuencia;
+        this.#ejercicios = [];
+        this.#entrenamientos = [];
     }
 
     agregarEjercicio(ejercicio, descanso, series, orden){
-        this.ejercicios.push(new Ejercicio(ejercicio, descanso, series, orden));
+        this.#ejercicios.push(new Ejercicio(ejercicio, descanso, series, orden));
     }
 
     darEjercicio(indice){
-        return this.ejercicios[indice];
+        return this.#ejercicios[indice];
     }
 
     agregarEntrenamiento(fecha){
-        this.entrenamientos.push(new Entrenamiento(this, fecha));
+        this.#entrenamientos.push(new Entrenamiento(this, fecha));
     }
 
     darEntrenamiento(indice){
-        return this.entrenamientos[indice];
+        return this.#entrenamientos[indice];
     }
 
     get darCantidadDeEjercicios(){
-        return this.ejercicios.length;
+        return this.#ejercicios.length;
     }
 
     get getMusculos(){
-        return this.musculos;
+        return this.#musculos;
     }
 
     get getEjercicios(){
-        return this.ejercicios;
+        return this.#ejercicios;
     }
 }
 
 class Entrenamiento {
+    #dia
+    #fecha
+    #estadisticas
+
     constructor(dia, fecha){
-        this.dia = dia;
-        this.fecha = fecha;
-        this.estadisticas = [];
+        this.#dia = dia;
+        this.#fecha = fecha;
+        this.#estadisticas = [];
     }
 
     darEstadistica(indice){
-        return this.estadisticas[indice];
+        return this.#estadisticas[indice];
     }
 
     agregarEstadistica(peso, repeticiones, indice){
-        let ejercicio = this.dia.darEjercicio(indice);
-        this.estadisticas.push(new Estadistica(ejercicio, peso, repeticiones));
+        let ejercicio = this.#dia.darEjercicio(indice);
+        this.#estadisticas.push(new Estadistica(ejercicio, peso, repeticiones));
     }
 
     get getFecha(){
-        return this.fecha;
+        return this.#fecha;
     }
 
     get getEstadisticas(){
-        return this.estadisticas;
+        return this.#estadisticas;
     }
 }
 
 class Ejercicio {
+    #nombre
+    #descanso
+    #series
+    #orden
+
     constructor(nombre, descanso, series, orden){
-        this.nombre = nombre;
-        this.descanso = descanso;
-        this.series = series;
-        this.orden = orden;
+        this.#nombre = nombre;
+        this.#descanso = descanso;
+        this.#series = series;
+        this.#orden = orden;
     }
 
     get getNombre(){
-        return this.nombre;
+        return this.#nombre;
     }
 
     get getDescanso(){
-        return this.descanso;
+        return this.#descanso;
     }
     
     get getSeries(){
-        return this.series;
+        return this.#series;
     }
 }
 
 class Estadistica {
+    #ejercicio
+    #peso
+    #repeticiones
+
     constructor(ejercicio, peso, repeticiones){
-        this.ejercicio = ejercicio;
-        this.peso = peso;
-        this.repeticiones = repeticiones;
+        this.#ejercicio = ejercicio;
+        this.#peso = peso;
+        this.#repeticiones = repeticiones;
     }
 
     get getRepeticion(){
-        return this.repeticiones;
+        return this.#repeticiones;
     }
 }
 
