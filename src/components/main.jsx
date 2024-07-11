@@ -140,7 +140,8 @@ class Entrenamiento {
 
     agregarEstadistica(peso, repeticiones, indice){
         let ejercicio = this.#dia.darEjercicio(indice);
-        this.#estadisticas.push(new Estadistica(ejercicio, peso, repeticiones));
+        this.#estadisticas.push(new Estadistica(ejercicio.getNombre, ejercicio.getDescanso, ejercicio.getSeries,
+             peso, repeticiones));
     }
 
     get getFecha(){
@@ -156,13 +157,11 @@ class Ejercicio {
     #nombre
     #descanso
     #series
-    #orden
 
     constructor(nombre, descanso, series, orden){
         this.#nombre = nombre;
         this.#descanso = descanso;
         this.#series = series;
-        this.#orden = orden;
     }
 
     get getNombre(){
@@ -179,18 +178,21 @@ class Ejercicio {
 }
 
 class Estadistica {
-    #ejercicio
     #peso
     #repeticiones
 
-    constructor(ejercicio, peso, repeticiones){
-        this.#ejercicio = ejercicio;
+    constructor(nombre, descanso, series, peso, repeticiones){
+        super(nombre, descanso, series)
         this.#peso = peso;
         this.#repeticiones = repeticiones;
     }
 
     get getRepeticion(){
         return this.#repeticiones;
+    }
+
+    get getPeso(){
+        return this.#peso;
     }
 }
 
