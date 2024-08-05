@@ -177,7 +177,7 @@ class Ejercicio {
     }
 }
 
-class Estadistica {
+class Estadistica extends Ejercicio{
     #peso
     #repeticiones
 
