@@ -9,8 +9,8 @@ const listaEstadisticas = ({prop}) => {
             renderItem={({item: repo}) => (
                 <View key={repo.getNombre} style={Style.container}>
                     <Text style={Style.textoPrincipal} >{repo.getNombre}</Text>
-                    <Text style={Style.dato} >Peso: {repo.peso}</Text>
-                    <Text style={Style.dato}>Repeticiones: {repo.repeticiones}</Text>
+                    <Text style={Style.dato} >Peso: {repo.getPeso}</Text>
+                    <Text style={Style.dato}>Repeticiones: {repo.getRepeticion}</Text>
                 </View>
             )}
         />
