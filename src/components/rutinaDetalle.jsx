@@ -13,11 +13,11 @@ const RutinaDetalle = ({rutina}) => {
 
     return (
         <View style = {style.container}>
-            <Text style = {style.textoPrincipal}>{rutina.nombre}</Text>
+            <Text style = {style.textoPrincipal}>{rutina.getNombre}</Text>
             <View style = {style.containerDias}>
                 <FlatList
                 keyExtractor={(dia) => dia.getMusculos}
-                data = {rutina.dias}
+                data = {rutina.getDias}
                 renderItem={({item: dia}) => (
                     <TouchableOpacity 
                         style = {style.diaContainer} 

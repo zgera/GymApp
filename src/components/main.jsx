@@ -1,9 +1,9 @@
 import React from 'react';
 import { Pressable, Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import EstadisticaLista from './statistics';
-import Timer from './timer';
-import RoutineImage from './routine';
+import EstadisticaLista from './statistics.jsx';
+import Timer from './timer.jsx';
+import RoutineImage from './routine.jsx';
 //import Entrenamientos from './entrenamientos.jsx'
 import Exercises from './exercises.jsx';
 import SubirEstadistica from './subirEstadistica.jsx'
@@ -121,6 +121,14 @@ class Dia {
     get getEjercicios(){
         return this.#ejercicios;
     }
+
+    get getEntrenamientos(){
+        return this.#entrenamientos
+    }
+
+    get getFrecuencia(){
+        return this.#frecuencia
+    }
 }
 
 class Entrenamiento {
@@ -150,6 +158,10 @@ class Entrenamiento {
 
     get getEstadisticas(){
         return this.#estadisticas;
+    }
+
+    get getDia(){
+        return this.#dia;
     }
 }
 
@@ -206,9 +218,6 @@ let Dia1 = Rutina1.darDia(0)
 Dia1.agregarEjercicio("Press Banca", 120, 4, 1, Dia1)
 Dia1.agregarEjercicio("Pecho Inclinado", 90, 3, 2, Dia1)
 Dia1.agregarEntrenamiento("5/6/2024")
-Dia1.darEntrenamiento(0).agregarEstadistica(65, 8, 0)
-Dia1.darEntrenamiento(0).agregarEstadistica(60, 8, 0)
-Dia1.darEntrenamiento(0).agregarEstadistica(60, 6, 0)
 
 export function HomePage({ navigation }) {
     return (
@@ -268,12 +277,18 @@ export function SubirEstadisticaPage(){
 const Main = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.textoPrincipal}>{Dia1.darEntrenamiento(0).dia.getMusculos}</Text>
-            <Text style={styles.textoSecundario}>{Dia1.darEntrenamiento(0).getFecha}</Text>
-            <EstadisticaLista prop={Dia1.darEntrenamiento(0).getEstadisticas} />
+            <SubirEstadistica  entrenamiento = {Dia1.darEntrenamiento(0)} indice = {1}/>
         </View>
     );
 }
+
+/*<Text style={styles.textoPrincipal}>{Dia1.darEntrenamiento(0).getDia.getMusculos}</Text>
+<Text style={styles.textoSecundario}>{Dia1.darEntrenamiento(0).getFecha}</Text>
+<EstadisticaLista prop={Dia1.darEntrenamiento(0).getEstadisticas} />*/
+
+/*<RutinaDetalle rutina = {Rutina1} />*/
+
+/*<SubirEstadistica  entrenamiento = {Dia1.darEntrenamiento(0)} indice = {0}/>*/
 
 const styles = StyleSheet.create({
     container: {

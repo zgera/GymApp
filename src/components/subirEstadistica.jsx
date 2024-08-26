@@ -12,7 +12,7 @@ const subirEstadistica = ({entrenamiento, indice}) => {
     return (
         <View style = {style.container}>
             <Text style={style.textoPrincipal}>
-                {entrenamiento.dia.darEjercicio(indice).getNombre}
+                {entrenamiento.getDia.darEjercicio(indice).getNombre}
             </Text>
             <TextInput
                 style = {style.input}
