@@ -277,7 +277,7 @@ export function SubirEstadisticaPage(){
 const Main = () => {
     return (
         <View style={styles.container}>
-            <SubirEstadistica  entrenamiento = {Dia1.darEntrenamiento(0)} indice = {1}/>
+            <RutinaDetalle rutina = {Rutina1} />
         </View>
     );
 }
