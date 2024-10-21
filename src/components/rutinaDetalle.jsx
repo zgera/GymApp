@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useRoute } from '@react-navigation/native';
 import {Text, View, StyleSheet, FlatList, TouchableOpacity, TextComponent} from 'react-native'
 
-const RutinaDetalle = ({rutina}) => {
+const RutinaDetalle = () => {
+    const route = useRoute();
+    const { rutina } = route.params;
     const[mostrarMas, setMostrarMas] = useState({})
 
     const handlePress = (nombre) => {
@@ -45,7 +48,8 @@ const RutinaDetalle = ({rutina}) => {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: 'black',
     },
     containerDias:{
         flex: 1,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Text, View, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 
-const subirEstadistica = ({entrenamiento, indice}) => {
+const subirEstadistica = ({dia, indice}) => {
     const [peso, setPeso] = useState("")
     const [repeticiones, setRepeticiones] = useState("")
     const handlePress = () => {

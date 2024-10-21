@@ -1,5 +1,7 @@
 import React from 'react';
 import { Pressable, Text, View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Constants from 'expo-constants';
 import EstadisticaLista from './statistics.jsx';
 import Timer from './timer.jsx';
@@ -8,6 +10,7 @@ import RoutineImage from './routine.jsx';
 import Exercises from './exercises.jsx';
 import SubirEstadistica from './subirEstadistica.jsx'
 import RutinaDetalle from './rutinaDetalle.jsx'
+import CreacionRutinas from './agregarRutina.jsx';
 
 class Usuario {
     #nombre
@@ -55,8 +58,8 @@ class Rutina {
     #nombre
     #dias
 
-    constructor(nombre){
-        this.#nombre = nombre;
+    constructor(){
+        this.#nombre;
         this.#dias = [];
     }
 
@@ -64,20 +67,32 @@ class Rutina {
         this.#dias.push(new Dia(musculos, frecuencia));
     }
 
-    darDia(indice){
-        return this.#dias[indice];
+    agregarEjercicioADia(dia_nombre, ejercicio_nombre, ejercicio_descanso, ejercicio_series){
+        for (let i = 0; i < this.#dias.length; i++){
+            if (this.#dias[i].getMusculos === dia_nombre){
+                this.#dias[i].agregarEjercicio(ejercicio_nombre,ejercicio_descanso,ejercicio_series)
+            }
+        }
     }
 
-    get getNombre(){
-        return this.#nombre;
+    set_nombre(nombre){
+        this.#nombre = nombre
     }
 
     get getDias(){
-        return this.#dias;
+        return this.#dias
     }
 
-    get getCantidadDeDias(){
-        return this.#dias.length;
+    get getNombre(){
+        return this.#nombre
+    }
+
+    get get_dia_tupla(){
+        let lista_dia = []
+        for (let i = 0; i < this.#dias.length; i++) {
+            lista_dia.push(this.#dias[i].tupla_dia)
+        }
+        return lista_dia 
     }
 }
 
@@ -94,11 +109,11 @@ class Dia {
         this.#entrenamientos = [];
     }
 
-    agregarEjercicio(ejercicio, descanso, series, orden){
-        this.#ejercicios.push(new Ejercicio(ejercicio, descanso, series, orden));
+    agregarEjercicio(ejercicio, descanso, series){
+        this.#ejercicios.push(new Ejercicio(ejercicio, descanso, series));
     }
 
-    darEjercicio(indice){
+    darEjercicio(indice){   
         return this.#ejercicios[indice];
     }
 
@@ -108,6 +123,10 @@ class Dia {
 
     darEntrenamiento(indice){
         return this.#entrenamientos[indice];
+    }
+
+    get tupla_dia(){
+        return [this.#musculos, this.#frecuencia]
     }
 
     get darCantidadDeEjercicios(){
@@ -170,7 +189,7 @@ class Ejercicio {
     #descanso
     #series
 
-    constructor(nombre, descanso, series, orden){
+    constructor(nombre, descanso, series){
         this.#nombre = nombre;
         this.#descanso = descanso;
         this.#series = series;
@@ -208,7 +227,7 @@ class Estadistica extends Ejercicio{
     }
 }
 
-let Usuario1 = new Usuario("Valentin", 17, 74)
+/*let Usuario1 = new Usuario("Valentin", 17, 74)
 Usuario1.crearRutina("Push Pull Leg", 3)
 let Rutina1 = Usuario1.darRutina(0)
 Rutina1.crearDia("Pecho Hombro Tricep", 2)
@@ -217,70 +236,29 @@ Rutina1.crearDia("Pierna", 2)
 let Dia1 = Rutina1.darDia(0)
 Dia1.agregarEjercicio("Press Banca", 120, 4, 1, Dia1)
 Dia1.agregarEjercicio("Pecho Inclinado", 90, 3, 2, Dia1)
-Dia1.agregarEntrenamiento("5/6/2024")
+Dia1.agregarEntrenamiento("5/6/2024")*/
 
-export function HomePage({ navigation }) {
-    return (
-        <View style={styles.appContainer}>
-            <Main />
-            <Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}> <Text>Timer</Text> </Pressable>
-        </View>
-    );
-}
-
-export function TimerPage({ navigation, duration }) {
-    duration = 180
-    return (
-        <View style={styles.appContainer}>
-            <Timer totalDuration={duration}/>
-            <Pressable onPress={() => navigation.navigate('Exercises', { ejercicios: Dia1.getEjercicios })} style={styles.button}> <Text>Exercises</Text> </Pressable>
-        </View>
-    );
-}
-
-export function RoutinePage({ navigation, exercise }) {
-    return (
-        <View style={styles.appContainer}>
-            <RoutineImage />
-            <Pressable onPress={() => navigation.navigate('Exercises', { ejercicios: Dia1.getEjercicios })} style={styles.button}>Exercises</Pressable>
-        </View>
-    );
-}
-
-export function ExercisesPage({ navigation, route }) {
-    const { ejercicios } = route.params;
-    return (
-        <View style={styles.appContainer}>
-            <Exercises ejercicios={ejercicios} navigation={navigation} />
-            {/*<Pressable onPress={() => navigation.navigate('Timer')} style={styles.button}>Timer</Pressable>*/}
-        </View>
-    );
-}
-
-
-export function RutinaDetallePage() {
-    return (
-        <View style={styles.appContainer}>
-            <RutinaDetalle />
-        </View>
-    );
-}
-
-export function SubirEstadisticaPage(){
-    return (
-        <View style={styles.appContainer}>
-            <SubirEstadistica />
-        </View>
-    );
-}
+const Stack = createStackNavigator();
 
 const Main = () => {
-    return (
-        <View style={styles.container}>
-            <RutinaDetalle rutina = {Rutina1} />
-        </View>
-    );
-}
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CreacionRutinas">
+        <Stack.Screen
+          name="CreacionRutinas"
+          component={CreacionRutinas}
+          initialParams={{ rutina: new Rutina() }} // Asegúrate de que Rutina esté definida
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DetalleRutina"
+          component={RutinaDetalle}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 /*<Text style={styles.textoPrincipal}>{Dia1.darEntrenamiento(0).getDia.getMusculos}</Text>
 <Text style={styles.textoSecundario}>{Dia1.darEntrenamiento(0).getFecha}</Text>
@@ -290,6 +268,7 @@ const Main = () => {
 
 /*<SubirEstadistica  entrenamiento = {Dia1.darEntrenamiento(0)} indice = {0}/>*/
 
+/*<CreacionRutinas rutina = {new Rutina()}/>*/
 const styles = StyleSheet.create({
     container: {
         flex: 1,
